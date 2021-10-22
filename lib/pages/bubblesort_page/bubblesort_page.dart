@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/bubblesort_provider.dart';
+import '../../widgets/custom_num_input.dart';
 
 class BubbleSortPage extends StatelessWidget {
   const BubbleSortPage({Key? key}) : super(key: key);
@@ -15,11 +16,19 @@ class BubbleSortPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(
-          child: Container(
-            child: Text(context.watch<BubbleSortProvider>().array.toString()),
+        if (context.watch<BubbleSortProvider>().array.isNotEmpty)
+          Center(
+            child: Container(
+              child: Text(context.watch<BubbleSortProvider>().array.toString()),
+            ),
           ),
+        const SizedBox(
+          height: 100,
         ),
+        CustomNumInput(
+            controller:
+                context.watch<BubbleSortProvider>().arrayInputController,
+            hintText: "Zahlen mit Komma getrennt eingeben..."),
         const SizedBox(
           height: 100,
         ),
