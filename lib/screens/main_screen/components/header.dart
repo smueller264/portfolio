@@ -5,6 +5,16 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: const Text(
+          "Sebastian Müller",
+          style: TextStyle(
+            fontSize: 30,
+          ),
+        ),
+      ),
+    );
   }
 }
