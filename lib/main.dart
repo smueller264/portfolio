@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
 import 'screens/main_screen/main_screen.dart';
+import 'screens/main_screen/provider/main_screen_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      home: ChangeNotifierProvider<MainScreenProvider>(
+        create: (context) => MainScreenProvider(),
+        child: const MainScreen(),
+      ),
     );
   }
 }
